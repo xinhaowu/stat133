@@ -1,5 +1,5 @@
 name = "Xinhao Wu"
-SID = ""
+SID = "539451"
 email = "xinhao.wu@berkeley.edu"
 github_name = "xinhaowu"
 status = "enrolled"
