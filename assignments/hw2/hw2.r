@@ -65,7 +65,7 @@ n.wr <- nrow(wr1500m)
 # record in the men's 1500 meter.
  
 # wr.name <- your code here
-wr.name <- wr1500m[wr1500m$times == min(wr1500m$times),][["athlete"]]
+wr.name <- wr1500m[wr1500m$times == min(wr1500m$times),]$athlete
 wr.name <- as.character(wr.name)
 
 # Let's look at the relationship between date and time.
@@ -122,8 +122,7 @@ wr_1998 <- wr1500m[wr1500m$year ==1998,][["new_year"]]
 # plot( your code here )
 plot(wr1500m$new_year, wr1500m$times_sec, xlim=c(min(wr1500m$new_year),2014), type="l")
 # lines( your code here )
-lines(x=c(wr_1998, min(wr1500m$times_sec)),y=c(2014,min(wr1500m$times_sec)),
-      type="o")
+lines(x=c(wr_1998, min(wr1500m$times_sec)),y=c(2014,min(wr1500m$times_sec)))
 
 # Q4. There are two times where the record stood for several
 # years - in 1944 and 1998. Let's make it easier to see these
@@ -158,13 +157,12 @@ mtext(text = wr1500m[wr1500m$year == 1998,][["athlete"]], side = 3, line = -1.2,
 plot(wr1500m$new_year, wr1500m$times_sec, xlim=c(min(wr1500m$new_year),2014)
      , type="l", xlab= "year",ylab = "second"
      , lwd = 3, main = "world record 1500m")
-lines(x=c(wr_1998, min(wr1500m$times_sec)),y=c(2014,min(wr1500m$times_sec))
-      ,lwd=3)
+lines(x=c(wr_1998, min(wr1500m$times_sec)),y=c(2014,min(wr1500m$times_sec)))
 abline(v=wr_1944,col="grey")
 abline(v=wr_1998,col="grey")
-mtext(text = wr1500m[wr1500m$year == wr_1944,][["athlete"]], side = 3, line = -1.2, 
+mtext(text = wr1500m[wr1500m$new_year == wr_1944,][["athlete"]], side = 3, line = -1.2, 
       at = wr_1944 + 0.2, adj = 0)
-mtext(text = wr1500m[wr1500m$year == wr_1998,][["athlete"]], side = 3, line = -1.2, 
+mtext(text = wr1500m[wr1500m$new_year == wr_1998,][["athlete"]], side = 3, line = -1.2, 
       at = wr_1998, adj = 0)
 
 ## You have finised the first plot!!
@@ -298,9 +296,10 @@ world <-map( col = "lightgrey", fill = TRUE)
 # wonMedal <- your code here
 WonMedal <- Medalonly$total
 # world <- your code here
-
+world <-map( col = "lightgrey", fill = TRUE)
 # symbols( your code here )
-
+symbols (x = Medalonly$latitude, y = Medalonly$longtitude
+         ,circles = sqrt(Medalonly$Total), inches=FALSE, add = TRUE)
 
 #Q12. Remake the plot and fill in the circles with a partially
 # transparent gold color. To create this color: 
@@ -318,13 +317,17 @@ install.packages("RColorBrewer")
 library("RColorBrewer")
 
 # display.brewer.all( your code here )
+display.brewer.all(n=10)
 # brewer.pal( your code here )
-
+brewer.pal(9,"Spectral")
 # myGold <- your selected color
+myGold <- "#FEC44FAA"
 
 #world <- your code here
+world <- map( col = "lightgrey", fill = TRUE)
 #symbols( your code here )
-
+symbols (x = Medalonly$latitude, y = Medalonly$longtitude
+         ,circles = sqrt(Medalonly$Total), inches=FALSE, add = TRUE, bg=myGold)
 
 ## That was the FINAL version of this plot
 
@@ -377,9 +380,11 @@ n.sports <- nlevels(athletes$Sport)
 # barplots provides the easiest comparison. 
 
 # athTab <- your code here
-athTab <- 
+athTab <- table(athletes$Sex, athletes$Sport)
 # make two barplots
+barplot(athTab, beside=TRUE)
 
+barplot(athTab, beside=FALSE)
 
 # what should beside be set to, T/F?
 # set.beside <- your answer
@@ -392,15 +397,17 @@ set.beside <- T
 # plot in Q 14. 
 
 # athTab2 <- table()
-# make barplot
+athTab2 <- table(athletes$Sport, athletes$Sex)
 
+# make barplot
+barplot(athTab2, beside=TRUE)
 
 # Compare the barplot with (Sex, Sport) vs (Sport, Sex). 
 # Which makes a more interesting visual comparison, plot 1 or 2?
 # store your answer (1 or 2) in best.plot.
 
 # best.plot <- your answer
-
+best.plot <- 1
 
 # Q16. Notice that the bars are in alphabetical order by sport.
 # To facilitate comparisons, we might want to arrange
@@ -413,7 +420,11 @@ set.beside <- T
 # increasing height.
 
 # orderSport <- your code here
+SportTab = table(athletes$Sport)
+orderSport <- (SportTab[order(SportTab)])
+Orderathlete <-athTab[,rownames(orderSport),drop=FALSE]
 # barplot( your code here )
+barplot(Orderathlete, beside=TRUE)
 
 
 # Q17. Finally to make the plot more informaation rich, try turning
@@ -423,9 +434,11 @@ set.beside <- T
 # parameter can be added in the call to barplot().
 # Also find and use a parameter to shrink the text for these labels. 
 # Lastly, add a title to the plot.
-
+barplot(Orderathlete, beside=TRUE ,axis.lty=1,las=3,cex.names = 0.75,
+        main = "Gender Representation by Sport")
 
 # This was the final version of the 4th plot.
 
 # You are DONE.
 # Hope you had fun making increasingly complex and attractive plots with R.
+
