@@ -1,0 +1,23 @@
+{
+    "email": "xinhao.wu@berkeley.edu", 
+    "github_name": "xinhaowu", 
+    "grades": {
+        "hw1": {
+            "note": "", 
+            "hash": "b79a8fe8493e23f8326801d00eb43b81ee82185c", 
+            "earned": 20, 
+            "possible": 20, 
+            "penalty": 0, 
+            "parts": {
+                "hw1": {
+                    "possible": 20, 
+                    "earned": 20
+                }
+            }
+        }
+    }, 
+    "login": "xinhaowu", 
+    "name": "Xinhao Wu", 
+    "status": "enrolled", 
+    "url": "git@github.com:xinhaowu/stat133.git"
+}
