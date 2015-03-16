@@ -71,8 +71,6 @@ powers <- function(x, k){
 # function should stop and print out an error message
 
 # Put your code here
-df = data.frame(amt,unt,ing)
-colnames(df)<- c("amount","unit","ingredient")
 
 roundto5 <- function(x) 5*round(x/5) 
 recipeConversion <- function(recipe){
