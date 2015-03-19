@@ -30,8 +30,9 @@
 sim.doctors <- function(initial.doctors, n.doctors, n.days, p){
         
         has_adopted <- matrix(ncol = n.days, nrow = n.doctors)
+        has_adopted[,1] <- initial.doctors
         
-        for(i in 1:n.days){
+        for(i in 1:n.days-1){
                 
                 doc.meet <- sample(x=n.doctors, size = 2)
                 
@@ -45,7 +46,7 @@ sim.doctors <- function(initial.doctors, n.doctors, n.days, p){
                 }
                 
                 
-                has_adopted[,i] <- initial.doctors
+                has_adopted[,i+1] <- initial.doctors
 
         }
         
