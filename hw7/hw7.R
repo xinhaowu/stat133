@@ -357,10 +357,11 @@ plot(hc)
 # x-axis: speech year, y-axis: average sentence length (word/sent)
 
 # your plot statements below:
-
-
-
-
+plot(speechYr, sentences, xlab = "Year", ylab = "Number of Sentences")
+plot(speechYr, words, xlab = "Year", ylab = "Number of Words")
+plot(speechYr, chars, xlab = "Year", ylab = "Number of Characters")
+plot(speechYr, chars/words, xlab = "Year", ylab = "average word length")
+plot(speechYr, words/sentences, xlab = "Year", ylab = "average Sentence length")
 
 
 
