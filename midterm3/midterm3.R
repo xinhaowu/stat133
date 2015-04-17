@@ -30,7 +30,7 @@ maxDigits <- function(chvec){
         
         digit.chvec <- substring(chvec,gregexpr("[[:digit:]]",chvec)[[1]],gregexpr("[[:digit:]]",chvec)[[1]])
         digit.chvec <- as.numeric(digit.chvec)
-        ifelse(is.na(digit.chvec),digit.chvec <- 1)
+        if(is.na(digit.chvec)) digit.chvec <- 0
         total<- max(digit.chvec)
         return(total)
 }
