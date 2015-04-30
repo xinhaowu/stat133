@@ -80,8 +80,8 @@ hotelCal.split <- unlist(strsplit(tolower(hotelCal.split0)," "))
 updateDate <- function(dates, old.yr) {
 
         old.yr.idcs <- grep(old.yr, dates)
-        new.dates <- gsub(old.yr, '2015', dates[old.yr.idcs])
-        return(new.dates)
+        updated.dates <- gsub(old.yr, '2015', dates[old.yr.idcs])
+        return(updated.dates)
 }
 
 
