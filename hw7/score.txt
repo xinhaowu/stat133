@@ -1,0 +1,20 @@
+Total: 18/20
+
+Is n.speeches correct? 2/2
+Are presidents and tempDates correct? 2/2
+Are speechYr and speechMo correct? 2/2
+
+Is speechToWords reasonable? 2/2
+Are wordVecs and wordMat reasonable? 1/2
+##!! Line 243 is not correct/
+##!! This will only give you the number of times words were
+##!! Used in the first speech.
+##!! consider wordMat <- simplify2array(WordCounts)
+Is presidentWordMat reasonable? 2/2
+
+Plots
+Are the multi-dimensional scaling plots correct? 1/2
+##!! Check the solutions for the second MDS plot.
+Is the hierarchical clustering plot appropriate? 1/1
+Are the five plots showing speech year and sentences/words/characters/word length/sentence length well done? 5/5
+
