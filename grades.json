@@ -57,6 +57,23 @@
                     "earned": 23
                 }
             }
+        }, 
+        "final-feiw50hj": {
+            "note": "", 
+            "hash": "f2492fcff469a283fcc69592cdc4c7dd628c2a1a", 
+            "earned": 66, 
+            "possible": 100, 
+            "penalty": 0, 
+            "parts": {
+                "final": {
+                    "possible": 69, 
+                    "earned": 39
+                }, 
+                "final_fig": {
+                    "possible": 31, 
+                    "earned": 27
+                }
+            }
         }
     }, 
     "login": "xinhaowu", 
